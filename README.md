@@ -1,0 +1,3 @@
+# A simple Assignment of ASP.net MVC
+
+Download the source code, Install the required packages and environment and enjoy....
