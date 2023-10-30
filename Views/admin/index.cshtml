@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Foods";
+}
+
+<div class="container">
+    <h2 class="text-center">
+        Manage - Foods
+    </h2>
+</div>
+<div style="max-width:600px;margin:0 auto">
+    <a asp-controller="admin" asp-action="add" class="btn btn-outline-primary mb-2 btn-sm">Add New</a>
+    <table class="table">
+        <thead>
+            <tr class="bg-primary text-white">
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col" class="text-end">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var food in Model)
+            {
+                <tr>
+                    <td>@food.id</td>
+                    <th scope="row">@food.name</th>
+                    <td>@Math.Round(food.price , 2)</td>
+                    <td class="text-end">
+                        <a onclick="return confirm('Are you sure to delete @food.name ?')" class="btn btn-danger btn-sm "
+                            href='@Url.Action("delete", "admin", new { id = food.id })'>
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

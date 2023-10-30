@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "Foods";
+}
+
+<div class="container">
+<h2 class="text-center">
+Foods
+</h2>
+</div>
+<div style="max-width:600px;margin:0 auto">
+
+<table class="table">
+  <thead>
+    <tr class="bg-primary text-white">
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col" class="text-end">Order</th>
+    </tr>
+  </thead>
+  <tbody>
+  @foreach (var food in Model)
+            {
+        <tr>
+        <td>@food.id</td>
+          <th scope="row">@food.name</th>
+          <td>@Math.Round(food.price , 2)</td>
+          <td class="text-end">
+          <a class="btn btn-warning btn-sm " href='@Url.Action("Order", "Food", new { id = food.id })'>Order</a>
+          </td>
+        </tr>
+            }
+
+  </tbody>
+</table>
+
+</div>

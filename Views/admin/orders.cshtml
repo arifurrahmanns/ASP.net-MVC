@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<div class="container">
+    <h2 class="text-center">
+        Orders
+    </h2>
+</div>
+<div style="max-width:600px;margin:0 auto">
+
+    <table class="table">
+        <thead>
+            <tr class="bg-primary text-white">
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col" class="text-end">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.id</td>
+                    <th scope="row">@order.name</th>
+                    <th scope="row" class="text-end">@order.date.ToString("d MMM yyyy h:mm tt")</th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>
