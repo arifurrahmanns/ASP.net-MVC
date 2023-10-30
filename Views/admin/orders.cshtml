@@ -7,14 +7,19 @@
         Orders
     </h2>
 </div>
-<div style="max-width:600px;margin:0 auto">
+<div style="max-width:800px;margin:0 auto">
 
     <table class="table">
         <thead>
             <tr class="bg-primary text-white">
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col" class="text-end">Date</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Food Id</th>
+                <th scope="col">Quantity</th>
+                <th scope="col" >Date</th>
+
+                <th scope="col" class="text-end">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +28,13 @@
                 <tr>
                     <td>@order.id</td>
                     <th scope="row">@order.name</th>
-                    <th scope="row" class="text-end">@order.date.ToString("d MMM yyyy h:mm tt")</th>
+                    <th scope="row">@order.phone</th>
+                    <th scope="row">@order.food_id</th>
+                    <th scope="row">@order.quantity</th>
+                    <th scope="row">@order.date.ToString("d MMM yyyy h:mm tt")</th>
+                    <th class="text-end" onclick="return confirm('Are you sure to delete the order?')">
+                        <a href='@Url.Action("order_delete", "admin", new { order_id = order.id })' class="btn btn-sm btn-danger">Delete</a>
+                    </th>
                 </tr>
             }
 
